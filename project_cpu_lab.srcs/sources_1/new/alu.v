@@ -65,4 +65,5 @@ module alu (
       end else en_out <= 1'b0;
     end
   end
+  
 endmodule
