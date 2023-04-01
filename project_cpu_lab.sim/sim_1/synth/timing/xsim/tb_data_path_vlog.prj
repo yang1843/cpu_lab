@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"tb_data_path_time_synth.v" \
+"../../../../../project_cpu_lab.srcs/sim_1/new/tb_data_path.v" \
+
+# Do not sort compile order
+nosort
