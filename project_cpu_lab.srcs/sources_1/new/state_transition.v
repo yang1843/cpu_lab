@@ -51,7 +51,7 @@ module state_transition (
       localparam Execute_Sub = 4'b0101;
       localparam Execute_And = 4'b0110;
       localparam Execute_Or = 4'b0111;
-      localparam Execute_Jump = 41000;
+      localparam Execute_Jump = 4'b1000;
       localparam Write_back = 4'b1001;
 /*三段式状态机第一段：描述状态转移*/
 always @(posedge clk or negedge rst_n) begin
@@ -72,9 +72,9 @@ always @(current_state or en_in or en1 or en2 or opcode) begin
         end
         Fetch:begin
             if(en1)
-                next_state <= Decode;
+                next_state = Decode;
             else
-                next_state <= current_state;
+                next_state = current_state;
         end
         Decode:begin
             case (opcode)
@@ -122,116 +122,117 @@ always @(current_state or en_in or en1 or en2 or opcode) begin
         default :next_state =current_state;
     endcase
 end
-always @ (*) begin
+/*三段式状态机，第三段描述每个状态的输出*/
+always @ (posedge clk) begin
 	if(!rst_n) begin
-		en_fetch = 1'b0;
-		en_group = 1'b0;
-		en_pc = 1'b0;
-		pc_ctrl = 2'b00;
-		reg_en = 4'b0000;
-		alu_in_sel = 1'b0;
-		alu_func = 3'b000;
+		en_fetch <= 1'b0;
+		en_group <= 1'b0;
+		en_pc <= 1'b0;
+		pc_ctrl <= 2'b00;
+		reg_en <= 4'b0000;
+		alu_in_sel <= 1'b0;
+		alu_func <= 3'b000;
 	end
 	else begin
 		case (next_state)
 			Initial: begin
-				en_fetch = 1'b0;
-				en_group = 1'b0;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b000;
+				en_fetch <= 1'b0;
+				en_group <= 1'b0;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b000;
 			end
 			Fetch: begin
-				en_fetch = 1'b1;
-				en_group = 1'b0;
-				en_pc = 1'b1;
-				pc_ctrl = 2'b01;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b000;
+				en_fetch <= 1'b1;
+				en_group <= 1'b0;
+				en_pc <= 1'b1;
+				pc_ctrl <= 2'b01;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b000;
 			end
 			Decode: begin
-				en_fetch = 1'b0;
-				en_group = 1'b0;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b000;
+				en_fetch <= 1'b0;
+				en_group <= 1'b0;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b000;
 			end
 			Execute_Moveb: begin
-				en_fetch = 1'b0;
-				en_group = 1'b1;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b000;
+				en_fetch <= 1'b0;
+				en_group <= 1'b1;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b000;
 			end
 			Execute_Add: begin
-				en_fetch = 1'b0;
-				en_group = 1'b1;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b001;
+				en_fetch <= 1'b0;
+				en_group <= 1'b1;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b001;
 			end
 			Execute_Sub: begin
-				en_fetch = 1'b0;
-				en_group = 1'b1;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b1;
-				alu_func = 3'b010;
+				en_fetch <= 1'b0;
+				en_group <= 1'b1;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b1;
+				alu_func <= 3'b010;
 			end
 			Execute_And: begin
-				en_fetch = 1'b0;
-				en_group = 1'b1;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b1;
-				alu_func = 3'b011;
+				en_fetch <= 1'b0;
+				en_group <= 1'b1;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b1;
+				alu_func <= 3'b011;
 			end
 			Execute_Or: begin
-				en_fetch = 1'b0;
-				en_group = 1'b1;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b1;
-				alu_func = 3'b100;
+				en_fetch <= 1'b0;
+				en_group <= 1'b1;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b1;
+				alu_func <= 3'b100;
 			end
 			Execute_Jump: begin
-				en_fetch = 1'b0;
-				en_group = 1'b0;
-				en_pc = 1'b1;
-				pc_ctrl = 2'b10;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b000;
+				en_fetch <= 1'b0;
+				en_group <= 1'b0;
+				en_pc <= 1'b1;
+				pc_ctrl <= 2'b10;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b000;
 			end
 			Write_back: begin
 				case(rd)
-					2'b00: reg_en = 4'b0001;
-					2'b01: reg_en = 4'b0010;
-					2'b10: reg_en = 4'b0100;
-					2'b11: reg_en = 4'b1000;
-					default: reg_en = 4'b0000;
+					2'b00: reg_en <= 4'b0001;
+					2'b01: reg_en <= 4'b0010;
+					2'b10: reg_en <= 4'b0100;
+					2'b11: reg_en <= 4'b1000;
+					default: reg_en<= 4'b0000;
 				endcase
 			end
 			default: begin
-				en_fetch = 1'b0;
-				en_group = 1'b0;
-				en_pc = 1'b0;
-				pc_ctrl = 2'b00;
-				reg_en = 4'b0000;
-				alu_in_sel = 1'b0;
-				alu_func = 3'b000;
+				en_fetch <= 1'b0;
+				en_group <= 1'b0;
+				en_pc <= 1'b0;
+				pc_ctrl <= 2'b00;
+				reg_en <= 4'b0000;
+				alu_in_sel <= 1'b0;
+				alu_func <= 3'b000;
 			end
 		endcase
 	end

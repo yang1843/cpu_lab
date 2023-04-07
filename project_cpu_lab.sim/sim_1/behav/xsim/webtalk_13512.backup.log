@@ -2,12 +2,12 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun Mar 26 18:31:28 2023
-# Process ID: 10964
+# Start of session at: Tue Apr  4 10:47:01 2023
+# Process ID: 13512
 # Current directory: D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim/xsim.dir/tb_alu_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim/xsim.dir/tb_state_transition_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim/xsim.dir/tb_alu_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Sun Mar 26 18:31:28 2023...
+source D:/ZYNQ_files/project_cpu_lab/project_cpu_lab.sim/sim_1/behav/xsim/xsim.dir/tb_state_transition_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Apr  4 10:47:02 2023...

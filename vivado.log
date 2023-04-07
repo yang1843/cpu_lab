@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Apr  4 10:30:18 2023
+# Process ID: 736
+# Current directory: D:/ZYNQ_files/project_cpu_lab
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10800 D:\ZYNQ_files\project_cpu_lab\project_cpu_lab.xpr
+# Log file: D:/ZYNQ_files/project_cpu_lab/vivado.log
+# Journal file: D:/ZYNQ_files/project_cpu_lab\vivado.jou
+#-----------------------------------------------------------
+start_gui
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  4 10:33:50 2023...

@@ -22,7 +22,7 @@
 
 module ir (
     input             clk,
-    input             rst,
+    input             rst_n,
     input             en_in,
     input      [15:0] ins,
     output reg        en_out,
@@ -30,7 +30,7 @@ module ir (
 );
 
 always@(posedge clk)begin
-    if(!rst)begin
+    if(!rst_n)begin
         en_out <= 1'b0;
         ir_out <=16'd0;
     end

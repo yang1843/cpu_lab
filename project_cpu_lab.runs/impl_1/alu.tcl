@@ -17,15 +17,15 @@ proc create_report { reportName command } {
   }
 }
 proc start_step { step } {
-  set stopFile ".stop.rst"
-  if {[file isfile .stop.rst]} {
+  set stopFile ".stop.rst_n"
+  if {[file isfile .stop.rst_n]} {
     puts ""
     puts "*** Halting run - EA reset detected ***"
     puts ""
     puts ""
     return -code error
   }
-  set beginFile ".$step.begin.rst"
+  set beginFile ".$step.begin.rst_n"
   set platform "$::tcl_platform(platform)"
   set user "$::tcl_platform(user)"
   set pid [pid]
@@ -49,13 +49,13 @@ proc start_step { step } {
 }
 
 proc end_step { step } {
-  set endFile ".$step.end.rst"
+  set endFile ".$step.end.rst_n"
   set ch [open $endFile w]
   close $ch
 }
 
 proc step_failed { step } {
-  set endFile ".$step.error.rst"
+  set endFile ".$step.error.rst_n"
   set ch [open $endFile w]
   close $ch
 }

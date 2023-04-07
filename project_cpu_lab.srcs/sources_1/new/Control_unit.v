@@ -54,7 +54,7 @@ module Control_unit (
           .en_in         (en),
           .en1           (en_out),
           .en2           (en_alu),
-         .rd            (ir_out[11:10]),
+          .rd            (ir_out[11:10]),
           .opcode        (ir_out[15:12]),
           .en_fetch_pulse(en_ram_in),
           .en_group_pulse(en_group_pulse),
